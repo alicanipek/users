@@ -6,10 +6,6 @@ import { Menu, Layout } from "antd";
 const { Sider } = Layout;
 
 class MySider extends React.Component {
-	handleClick = (e: any) => {
-		console.log("click ", e);
-	};
-
 	render() {
 		return (
 			<Sider

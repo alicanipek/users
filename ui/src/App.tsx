@@ -1,11 +1,6 @@
 import React from "react";
 import "./App.css";
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	RouteComponentProps
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Layout } from "antd";
 import MySider from "./Components/Menu";
 import Home from "./Components/Home";
@@ -61,10 +56,6 @@ const App = () => {
 		</div>
 	);
 };
-
-function About() {
-	return <h2>About</h2>;
-}
 
 function Users() {
 	return <h2>Users</h2>;
