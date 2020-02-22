@@ -1,0 +1,8 @@
+# Binaries for programs and plugins
+**/*.exe
+
+**/node_modules
+**/build
+**/.DS_Store
+**/.vscode
+users
