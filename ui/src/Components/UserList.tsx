@@ -71,11 +71,9 @@ export class UserList extends React.Component<{}, UserListState> {
 	componentDidMount() {
 		fetch("http://localhost:8000/users")
 			.then(response => {
-				console.log(response.status);
 				return response.json();
 			})
 			.then((myJson: User[]) => {
-				console.log(myJson);
 				this.setState({
 					dataSource: myJson
 				});

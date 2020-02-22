@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import { Form, Icon, Input, Button } from "antd";
+import { Form, Icon, Input, Button, message } from "antd";
 import { FormComponentProps } from "antd/lib/form/Form";
 
 interface UserProps extends FormComponentProps {
@@ -18,7 +18,6 @@ type InsertStateKeys = keyof InsertState;
 class UserForm extends React.Component<UserProps, InsertState> {
 	constructor(props: UserProps) {
 		super(props);
-		console.log("here");
 
 		this.state = {
 			UserID: 0,
@@ -44,15 +43,12 @@ class UserForm extends React.Component<UserProps, InsertState> {
 						Age: myJson.Age,
 						City: myJson.City
 					});
-					console.log("here");
 					this.props.form.setFieldsValue({
 						Name: myJson.Name,
 						Age: myJson.Age,
 						City: myJson.City
 					});
 				});
-
-			console.log(this.state);
 		}
 	}
 	handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -73,26 +69,40 @@ class UserForm extends React.Component<UserProps, InsertState> {
 			? "http://localhost:8000/user/" + this.state.UserID
 			: "http://localhost:8000/users";
 		let method = this.props.isUpdate ? "PUT" : "POST";
-		console.log(this.state);
+
 		fetch(url, {
-			method: method, // or 'PUT'
+			method: method, // 'POST' or 'PUT'
 			headers: {
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify(this.state)
 		})
 			.then(response => {
-				console.log(response);
-
-				response.json();
+				let t = response.json();
+				return t;
 			})
 			.then(data => {
-				console.log("Success:", data);
+				if (!this.props.isUpdate) {
+					this.success("Successfully added.");
+					this.props.form.resetFields();
+					this.setState({});
+				} else {
+					this.success("Succesfully updated: " + data.Name);
+				}
 			})
 			.catch(error => {
-				console.error("Error:", error);
+				this.fail(error);
 			});
 	}
+
+	success = (text: string) => {
+		message.success(text);
+	};
+
+	fail = (text: string) => {
+		message.error(text);
+	};
+
 	render() {
 		const { getFieldDecorator } = this.props.form;
 		const formItemLayout = {
