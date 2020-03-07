@@ -62,7 +62,6 @@ export class UserList extends React.Component<{}, UserListState> {
 						>
 							<button>
 								<a href="#">Delete</a>
-								{record.UserID}
 							</button>
 						</Popconfirm>
 					</span>
