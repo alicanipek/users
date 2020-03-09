@@ -50,7 +50,7 @@ export class UserList extends React.Component<{}, UserListState> {
 			render: record => {
 				return (
 					<span>
-						<button>
+						<button style={{ cursor: "pointer" }}>
 							<Link to={`/users/${record.UserID}`}>Edit</Link>
 						</button>
 						<Divider type="vertical" />
@@ -60,8 +60,10 @@ export class UserList extends React.Component<{}, UserListState> {
 							okText="Yes"
 							cancelText="No"
 						>
-							<button>
-								<a href="#">Delete</a>
+							<button
+								style={{ cursor: "pointer", color: "#1890ff" }}
+							>
+								Delete
 							</button>
 						</Popconfirm>
 					</span>

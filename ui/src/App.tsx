@@ -6,6 +6,7 @@ import MySider from "./Components/Menu";
 import Home from "./Components/Home";
 import AddUser from "./Components/AddUser";
 import UpdateUser from "./Components/UpdateUser";
+import Users from "./Components/Users";
 const { Content } = Layout;
 const App = () => {
 	return (
@@ -56,9 +57,5 @@ const App = () => {
 		</div>
 	);
 };
-
-function Users() {
-	return <h2>Users</h2>;
-}
 
 export default App;

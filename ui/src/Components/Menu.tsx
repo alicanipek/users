@@ -25,11 +25,11 @@ const MySider = withRouter(({ history }) => {
 				<Menu.Item key="/">
 					<Link to="/">Home</Link>
 				</Menu.Item>
-				<Menu.Item key="/adduser">
-					<Link to="/adduser">Add User</Link>
-				</Menu.Item>
 				<Menu.Item key="/users">
 					<Link to="/users">Users</Link>
+				</Menu.Item>
+				<Menu.Item key="/adduser">
+					<Link to="/adduser">Add User</Link>
 				</Menu.Item>
 			</Menu>
 		</Sider>

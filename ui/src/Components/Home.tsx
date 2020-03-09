@@ -1,10 +1,13 @@
 import React from "react";
+import UserStats from "./UserStats";
 import "../App.css";
-import UserList from "./UserList";
-export default function Home() {
-	return (
-		<div>
-			<UserList />
-		</div>
-	);
+
+export default class Home extends React.Component {
+	render() {
+		return (
+			<div>
+				<UserStats></UserStats>
+			</div>
+		);
+	}
 }
